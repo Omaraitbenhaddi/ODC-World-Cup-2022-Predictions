@@ -11,7 +11,7 @@ __Data__:
      -Nous avons les rangs FIFA de 1993 à 2018 donnés par 
                      https://www.kaggle.com/datasets/tadhgfitzgerald/fifa-international-soccer-mens-ranking-1993now
 
-     - -Nous avons les rangs FIFA de 1992-2022 
+     - Nous avons les rangs FIFA de 1992-2022 
                      https://www.kaggle.com/datasets/cashncarry/fifaworldranking
 
      -L’historique des matches de football depuis 1872 donné par 
