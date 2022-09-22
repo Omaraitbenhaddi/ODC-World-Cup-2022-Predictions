@@ -31,6 +31,19 @@ __Data__:
          -Football nations Stats  
                           https://fbref.com/en/countries/
 
+__Environment and tools__
+
+          1. Jupyter Notebook 
+          2. Numpy
+          3. Pandas
+          4. Seaborn
+          5. Matplotlib 
+          6. Scikit-learn
+          7. xgboost 
+          8. scipy
+          9. joblib
+
+we chose XGBoost in  model and got an accuracy of 78% on the training set and 63% accuracy on the test set
 
 __Lifecycle__
 
