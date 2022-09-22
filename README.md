@@ -14,3 +14,4 @@ Data
     -Les statistiques des joueurs tirées de https://www.kaggle.com/antoinekrajnc/soccer-players-statistics
 
 
+    -Fifa index            https://www.fifaindex.com/fr/team/1335/france/fifa23/
