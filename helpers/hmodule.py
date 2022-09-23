@@ -32,7 +32,7 @@ def get_confederation(team):
     Returns:
         str -- Confederation of the team
     """
-    conf = fr.loc[fr.countr_full==team, 'confederation'].unique()[0]
+    conf = fr.loc[fr.country_full==team, 'confederation'].unique()[0]
     return conf
 
 
@@ -50,7 +50,7 @@ def get_tier(team):
     Returns:
         str: tier of the team
     """
-    r = fr.d_rank.loc[fr.d_rank.country_full==team, 'rank'].iloc[0]
+    r = fr.loc[(fr.country_full==team) & (fr.year=="2022") & (fr.month=="08"), 'rank'].iloc[0]
     if r <= 8:
         return 'diamond'
     elif r <= 16:
@@ -74,8 +74,8 @@ def marginal_effect(home_team, away_team):
     Returns:
         float: marginal effect 
     """
-    home_points = fr.d_points.loc[fr.d_points.country_full==home_team, 'total_points'].iloc[0]
-    away_points = fr.d_points.loc[fr.d_points.country_full==away_team, 'total_points'].iloc[0]
+    home_points = fr.loc[(fr.country_full==home_team) & (fr.year=="2022") & (fr.month=="08"), 'total_points'].iloc[0]
+    away_points = fr.loc[(fr.country_full==away_team) & (fr.year=="2022") & (fr.month=="08"), 'total_points'].iloc[0]
     
     return (home_points - away_points) / away_points
 
@@ -108,3 +108,26 @@ def effect_tier(home_team, away_team):
         return 'very_high'
 
 
+def get_match(home_team, away_team, predictors, xcols):
+    #home_team
+    #away_team
+
+    neutral = get_neutral(home_team, away_team)
+    confederation = get_confederation(home_team)
+    confederation__away = get_confederation(away_team)
+    home_tier = get_tier(home_team)
+    away_tier = get_tier(away_team)
+    marginal_effect_ = marginal_effect(home_team, away_team)
+    effect_tier_ = effect_tier(home_team, away_team)
+
+    match = [home_team, away_team, neutral, confederation, confederation__away, home_tier, away_tier, marginal_effect_, effect_tier_]
+
+    d_match = pd.DataFrame([match], columns=predictors)
+
+    x_match = pd.get_dummies(d_match)
+
+    for col in xcols:
+        if col not in x_match:
+            x_match[col] = 0
+
+    return x_match[xcols]
