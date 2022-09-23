@@ -82,3 +82,29 @@ def marginal_effect(home_team, away_team):
 
 #--------------------------------------------------------------------------------------------
 
+
+
+def effect_tier(home_team, away_team):
+    
+    """based on marginal_effect we classify teams _very__high, high, medium, low_
+
+        Arguments:
+            home_team {str} -- The home team
+            away_team {str} -- The away team
+
+        Returns:
+            str -- effect tier "low" or "medium" or "high" or "very high"
+        """
+
+    marginal_eff = marginal_effect(home_team, away_team)
+
+    if marginal_eff < -0.37:
+        return 'low'
+    elif marginal_eff >=-0.37 and marginal_eff < -0.20:
+        return 'medium'
+    elif marginal_eff >=-0.20 and marginal_eff < -0.25:
+        return 'high'
+    else:
+        return 'very_high'
+
+
