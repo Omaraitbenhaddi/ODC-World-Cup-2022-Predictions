@@ -75,8 +75,8 @@ def marginal_effect(home_team, away_team):
     Returns:
         float: marginal effect 
     """
-    home_points = fr.d_points.loc[d_points.country_full==home_team, 'total_points'].iloc[0]
-    away_points = fr.d_points.loc[d_points.country_full==away_team, 'total_points'].iloc[0]
+    home_points = d_points.loc[d_points.country_full==home_team, 'total_points'].iloc[0]
+    away_points = d_points.loc[d_points.country_full==away_team, 'total_points'].iloc[0]
     
     return (home_points - away_points) / away_points
 
