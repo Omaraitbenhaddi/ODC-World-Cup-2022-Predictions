@@ -18,7 +18,8 @@ def get_neutral(home_team, away_team):
         return True
 
 fr = pd.read_csv('../data/fifa_ranking.csv', sep=',', decimal='.')
-
+d_rank = fr.query('year=="2022" and month=="08"')
+d_points = fr.query('year=="2022" and month=="08"')[['rank', 'country_full', 'total_points']]
 
 #--------------------------------------------------------------------------------------------
 
