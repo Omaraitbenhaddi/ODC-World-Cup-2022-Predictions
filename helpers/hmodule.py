@@ -50,7 +50,7 @@ def get_tier(team):
     Returns:
         str: tier of the team
     """
-    r = d_rank.loc[d_rank.country_full==team, 'rank'].iloc[0]
+    r = fr.d_rank.loc[fr.d_rank.country_full==team, 'rank'].iloc[0]
     if r <= 8:
         return 'diamond'
     elif r <= 16:
@@ -74,8 +74,8 @@ def marginal_effect(home_team, away_team):
     Returns:
         float: marginal effect 
     """
-    home_points = d_points.loc[d_points.country_full==home_team, 'total_points'].iloc[0]
-    away_points = d_points.loc[d_points.country_full==away_team, 'total_points'].iloc[0]
+    home_points = fr.d_points.loc[fr.d_points.country_full==home_team, 'total_points'].iloc[0]
+    away_points = fr.d_points.loc[fr.d_points.country_full==away_team, 'total_points'].iloc[0]
     
     return (home_points - away_points) / away_points
 
