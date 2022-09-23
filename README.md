@@ -18,3 +18,5 @@ Data
 
 
     Football nations Stats  https://fbref.com/en/countries/
+
+    Players data to scrap https://fbref.com/en/players/e42d61c7/Achraf-Hakimi
