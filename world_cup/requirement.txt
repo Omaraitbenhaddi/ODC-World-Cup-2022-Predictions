@@ -1,0 +1,4 @@
+django
+pandas
+joblib==1.00
+xgboost
