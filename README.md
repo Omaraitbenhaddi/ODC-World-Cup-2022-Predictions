@@ -49,3 +49,6 @@ __Lifecycle__
 
 ![](https://github.com/mrthlinh/FIFA-World-Cup-Prediction/blob/master/pic/life_cycle.png)
 
+    Football nations Stats  https://fbref.com/en/countries/
+
+    Players data to scrap https://fbref.com/en/players/e42d61c7/Achraf-Hakimi
