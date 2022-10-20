@@ -8,7 +8,7 @@
 
 <br>
 <div class="container text-white pt-2" style="max-width: 60%;">
-  <h5 align="center">Give Teams:</h5>
+  <h5 align="center">Give me 2 Teams:</h5>
   <br>
 <form method="Post",action="">
     {{ form.hidden_tag() }}
@@ -17,7 +17,7 @@
 
 
   <tr>
-    <td ><label for="home_team">TEAM 1:</label><br>
+    <td class="p-4"><label for="home_team">TEAM 1:</label><br>
     {{ form.home_team(class="form-control") }}<br></td>
 
     <td><label for="away_team">TEAM 2:</label><br>
@@ -25,8 +25,9 @@
   </tr>
   
   </table>
-
+    <center>
     <br>{{ form.submit(class="btn btn-dark") }}<br>
+    </center>
   </form> 
 </div>
 </div>

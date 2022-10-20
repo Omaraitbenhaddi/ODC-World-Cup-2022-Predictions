@@ -17,7 +17,7 @@ def get_neutral(home_team, away_team):
     else:
         return True
 
-fr = pd.read_csv('./data/fifa_ranking.csv', sep=',', decimal='.')
+fr = pd.read_csv('./data1/fifa_ranking.csv', sep=',', decimal='.')
 fr['year'] = fr.apply(lambda x: x.rank_date[:4], axis=1)
 fr['month'] = fr.apply(lambda x: x.rank_date[5:7], axis=1)
 d_rank = fr.query('year=="2022" and month=="08"')

@@ -29,9 +29,15 @@ def index():
        # features = features.astype(np.float)
         print(meta['name'])
         pred= meta['model'].predict(match)[0]
+        print(pred)
         if pred=='home_lose':
             winner=away_team
             return render_template('winner.html',winner=winner)
+
+        elif pred=='draw':
+            winner = "NO winner results is draw"
+            return render_template('winner.html',winner=winner)
+
         else:
             winner=home_team
             return render_template('winner.html',winner=winner)
