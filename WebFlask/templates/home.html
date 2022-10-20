@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<br><br><br>
+<h1 class="text-white" style="text-align: center;">World Cup 2022 Predictions</h2>
+<br><br>
+
+<br>
+<div class="container text-white pt-2" style="max-width: 60%;">
+  <h5 align="center">Give Teams:</h5>
+  <br>
+<form method="Post",action="">
+    {{ form.hidden_tag() }}
+  <table style="width: 100%">
+
+
+
+  <tr>
+    <td ><label for="home_team">TEAM 1:</label><br>
+    {{ form.home_team(class="form-control") }}<br></td>
+
+    <td><label for="away_team">TEAM 2:</label><br>
+    {{ form.away_team(class="form-control") }}<br></td>
+  </tr>
+  
+  </table>
+
+    <br>{{ form.submit(class="btn btn-dark") }}<br>
+  </form> 
+</div>
+</div>
+  {% endblock %}
