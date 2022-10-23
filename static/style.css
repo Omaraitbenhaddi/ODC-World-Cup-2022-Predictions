@@ -1,9 +1,22 @@
 @media (max-width: 1000px){
+    .container{
+        max-width: 100%;
+    }
     .tab_cont{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    
+    .elem_tab{
+        width: 90%;
+    }
+    tr .p-4{
+        padding: 0rem!important;
+    }
+    body{
+        padding: 100px;
     }
 }
 
