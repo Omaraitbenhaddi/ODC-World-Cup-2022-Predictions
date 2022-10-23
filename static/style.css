@@ -18,5 +18,17 @@
     body{
         padding: 100px;
     }
+    label{
+        font-size: 2rem;
+    }
+    .form-control{
+        font-size: 2rem;
+    }
+    .submitBtn{
+        font-size: 2rem;
+        height: 5rem;
+        width: 30%;
+        
+    }
 }
 
