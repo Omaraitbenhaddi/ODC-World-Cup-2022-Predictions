@@ -1,0 +1,9 @@
+@media (max-width: 600px){
+    .tab_cont{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
