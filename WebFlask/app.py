@@ -7,6 +7,7 @@ import pickle
 import numpy as np
 import joblib
 meta = joblib.load('MetaModelFifa_predictors.mdl')
+meta['country'].sort()
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
@@ -25,12 +26,9 @@ def index():
     if form.validate_on_submit():
         home_team=form.home_team.data
         away_team=form.away_team.data
-        match=hmodule.get_match(home_team, away_team,meta['predictors'] ,meta['xcols'] )
-       # features = features.astype(np.float)
-        print(meta['name'])
-        pred= meta['model'].predict(match)[0]
+        pred=hmodule.get_winner('France','Brazil',meta['model'],meta['predictors'],meta['xcols'])
         print(pred)
-        if pred=='home_lose':
+        if pred==away_team:
             winner=away_team
             return render_template('winner.html',winner=winner)
 
@@ -45,5 +43,5 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False,host='0.0.0.0')
 

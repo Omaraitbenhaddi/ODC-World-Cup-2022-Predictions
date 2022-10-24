@@ -137,3 +137,28 @@ def get_match(home_team, away_team, predictors, xcols):
 
     return x_match[xcols]
 
+
+
+def get_match_proba(home_team,away_team,model,predictors,xcols):
+    pred={
+        'draw':None,
+        home_team:None,
+        away_team:None
+    }
+    pred1=model.predict_proba(get_match(home_team,away_team,predictors,xcols))
+    pred2=model.predict_proba(get_match(away_team,home_team,predictors,xcols))
+    pred['draw']=(pred1[0][0]+pred2[0][0])/2
+    pred[home_team]=(pred1[0][2]+pred2[0][1])/2
+    pred[away_team]=(pred1[0][1]+pred2[0][2])/2
+    return pred
+    
+def get_winner(home_team,away_team,model,predictors,xcols):
+    dict=get_match_proba(home_team,away_team,model,predictors,xcols)
+    print(dict)
+    max_prob=0
+    for key,value in zip(dict.keys(),dict.values()):
+        if(value>max_prob):
+            win=key
+            max_prob=value
+    return win
+
