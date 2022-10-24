@@ -154,7 +154,6 @@ def get_match_proba(home_team,away_team,model,predictors,xcols):
     
 def get_winner(home_team,away_team,model,predictors,xcols):
     dict=get_match_proba(home_team,away_team,model,predictors,xcols)
-    print(dict)
     max_prob=0
     for key,value in zip(dict.keys(),dict.values()):
         if(value>max_prob):

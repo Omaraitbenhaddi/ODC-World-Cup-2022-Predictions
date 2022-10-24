@@ -26,8 +26,7 @@ def index():
     if form.validate_on_submit():
         home_team=form.home_team.data
         away_team=form.away_team.data
-        pred=hmodule.get_winner('France','Brazil',meta['model'],meta['predictors'],meta['xcols'])
-        print(pred)
+        pred=hmodule.get_winner(home_team,away_team,meta['model'],meta['predictors'],meta['xcols'])
         if pred==away_team:
             winner=away_team
             return render_template('winner.html',winner=winner)
