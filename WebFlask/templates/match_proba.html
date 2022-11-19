@@ -1,0 +1,31 @@
+{% extends 'Retour.html' %}
+
+{% block body %}
+
+<br><br><br>
+<h1 class="text-white" style="text-align: center;">World Cup 2022 Predictions</h2>
+<br><br>
+
+<br>
+
+<div class="container text-white pt-2">
+  <table style="width: 100%">
+
+
+
+  <tr class="tab_cont">
+    
+    <td class="elem_tab p-4" ><label for="draw">draw: {{ draw }}</label><br>
+    </td>
+
+    <td class="elem_tab"><label for="home_team">{{home_team}}: {{ home }}</label><br>
+    </td>
+    <td class="elem_tab"><label for="away_team">{{away_team}}: {{ away }}</label><br>
+    </td>
+  </tr>
+  
+  </table>
+
+</div>
+</div>
+  {% endblock %}

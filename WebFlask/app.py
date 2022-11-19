@@ -27,18 +27,42 @@ def index():
         home_team=form.home_team.data
         away_team=form.away_team.data
         pred=hmodule.get_winner(home_team,away_team,meta['model'],meta['predictors'],meta['xcols'])
+        if home_team==away_team:
+            return render_template('MemeEquipe.html',path="/")
         if pred==away_team:
             winner=away_team
-            return render_template('winner.html',winner=winner)
+            return render_template('winner.html',winner=winner,path="/")
 
         elif pred=='draw':
             winner = "NO winner results is draw"
-            return render_template('winner.html',winner=winner)
+            return render_template('winner.html',winner=winner,path="/")
 
         else:
             winner=home_team
-            return render_template('winner.html',winner=winner)
+            return render_template('winner.html',winner=winner,path="/")
     return render_template('home.html',fname=fname,lname=lname,form=form)
+
+
+
+@app.route('/proba',methods=['GET', 'POST'])
+def proba():
+    fname = None
+    lname = None
+    form = Form()
+    if form.validate_on_submit():
+        home_team=form.home_team.data
+        away_team=form.away_team.data
+        pred=hmodule.get_match_proba(home_team,away_team,meta['model'],meta['predictors'],meta['xcols'])
+        print(home_team)
+        print(away_team)
+        if home_team==away_team:
+            return render_template('MemeEquipe.html',path="/proba")
+
+
+        else:
+            return render_template('match_proba.html',home=str(pred[home_team]*100)[0:5]+"%",draw=str(pred['draw']*100)[0:5]+"%",away=str(pred[away_team]*100)[0:5]+"%",home_team=home_team,away_team=away_team,path="/proba")
+    return render_template('home.html',fname=fname,lname=lname,form=form)
+
 
 
 if __name__ == '__main__':
